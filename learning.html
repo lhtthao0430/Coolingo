@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Coolingo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+	<div class="container-learn">
+		<div id="progress">
+			<div id="bar"></div>
+		</div>
+
+		<div class="wrap-content">
+			<span class="question-type">Type what you hear</span>	
+			<span class="question"></span>	
+			<!--===============================================================================================-->
+			<div class="wrap-answer" id="wrap-answer"></div>
+			<div class="wrap-word" id="wrap-word"></div>
+			<!--===============================================================================================-->
+			<div class="wrap-choose-answer">
+				<button class="choose-answer" id="A">Đáp án A</button>
+				<button class="choose-answer" id="B">Đáp án B</button>
+				<button class="choose-answer" id="C">Đáp án C</button>
+				<button class="choose-answer" id="D">Đáp án D</button>
+			</div>
+			<!--===============================================================================================-->
+			<img src="sources/icons/speakers.png" id="speaker"">
+			<div class="wrap-input-answer">
+				<input class="input-answer" type="text" name="answer" id="input-answer">
+			</div>
+			<!--===============================================================================================-->
+		</div>
+		<button class="content-btn" id="next">Check</button>
+		<div class="result"></div>
+	</div>
+	
+<!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
