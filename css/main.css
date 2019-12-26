@@ -287,12 +287,11 @@ input.input-answer {
   z-index: 1;
 }
 
-
 .choose-word:hover {
   background-color: #353635;
 }
 
-.result {
+.check {
   text-align: center;
   cursor: pointer;
   display: inline-block;
@@ -308,6 +307,28 @@ input.input-answer {
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 1;
+}
+
+.result {
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  padding: 20px 20px;
+  width: 500px;
+  height: 100%;
+  margin-top: 20%;
+  background-color: #69c1fc;
+  border-radius: 31px;
+  font-family: sans-serif;
+  font-size: 30px;
+  color: #fff;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;

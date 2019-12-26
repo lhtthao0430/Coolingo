@@ -2,8 +2,10 @@ $(document).ready(function(){
 	type = 1;
 	process = 0;
 	index = 0;
+	rightAnswer = 0;
+	wrongAnswer = 0;
 	$('.container-learn').hide();
-	$('.result').hide();
+	$('.check').hide();
 	const Struct = (...keys) => ((...v) => keys.reduce((o, k, i) => {o[k] = v[i]; return o} , {}))
 	const Content = Struct('type', 'content', 'answer');
 	var question = [];
@@ -13,6 +15,10 @@ $(document).ready(function(){
 		url: "http://localhost:8080/test",
 		type: 'GET',
 		dataType:"json",
+		data: {
+			"macd": sessionStorage.getItem("macd"),
+			"capdo": sessionStorage.getItem("capdo")
+		},
 		processData: false,
 		success: function(data) {
 			$.each(data, function(key, value){
@@ -84,50 +90,58 @@ $(document).ready(function(){
 
 	$('#next').click(function() {
 		if ($(this).text() === 'Check'){
-			$(this).text('Next');
 			process += 10;
-			if (process > 100){
-				$('.result').text('Done');
-			}
+			$(this).text('Next');
 			$('#bar').width(process + '%');
 			switch(question[index].type){
 				case 1:
 					if ($('#wrap-answer').children('.choose-word').text() == question[index].answer + ' '){
-						$('.result').text('Right Answer');
-						$('.result').css('background-color', '#2bff00');
+						$('.check').text('Right Answer');
+						$('.check').css('background-color', '#2bff00');
+						rightAnswer++;
 					}
 					else {
-						$('.result').text('Wrong Answer. Answer is ' + question[index].answer);
-						$('.result').css('background-color', '#ff0000');
+						$('.check').text('Wrong Answer. Answer is ' + question[index].answer);
+						$('.check').css('background-color', '#ff0000');
+						wrongAnswer++;
 					}
 					break;
 				case 2:
 					if ($('.selected').attr('id') == question[index].answer){
-						$('.result').text('Right Answer');
-						$('.result').css('background-color', '#2bff00');
+						$('.check').text('Right Answer');
+						$('.check').css('background-color', '#2bff00');
+						rightAnswer++;
 					}
 					else {
-						$('.result').text('Wrong Answer. Answer is ' + question[index].answer);
-						$('.result').css('background-color', '#ff0000');
+						$('.check').text('Wrong Answer. Answer is ' + question[index].answer);
+						$('.check').css('background-color', '#ff0000');
+						wrongAnswer++;
 					}
 					break;
 				case 3:
 					if ($('#input-answer').val() == question[index].content){
-						$('.result').text('Right Answer');
-						$('.result').css('background-color', '#2bff00');
+						$('.check').text('Right Answer');
+						$('.check').css('background-color', '#2bff00');
+						rightAnswer++;
 					}
 					else {
-						$('.result').text('Wrong Answer. Answer is ' + question[index].content);
-						$('.result').css('background-color', '#ff0000');
+						$('.check').text('Wrong Answer. Answer is ' + question[index].content);
+						$('.check').css('background-color', '#ff0000');
+						wrongAnswer++;
 					}
 			}
-			$('.result').show();
+			$('.check').show();
 		}
 		else {
-				$(this).text('Check');
-				index++;
-				nextQuestion(question[index]);
-				$('.result').hide();
+			if (process >= 100){
+				sessionStorage.setItem("right-answer", rightAnswer);
+				sessionStorage.setItem("wrong-answer", wrongAnswer);
+				window.location.replace("result.html");
+			}
+			$(this).text('Check');
+			index++;
+			nextQuestion(question[index]);
+			$('.check').hide();
 		}
     });
 });
