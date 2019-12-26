@@ -41,7 +41,7 @@ VALUES
     (1, 1, 1, 1, N'Họ ăn một quả dâu', N'They eat a strawberry'),
     (1, 1, 2, 1, N'Chúng ta ăn thịt', N'We eat meat'),
     (1, 1, 3, 1, N'Người đàn ông ăn một quả cà chua', N'The man eats a tomato'),
-    (1, 1, 4, 2, N'Cô ấy ăn phô mai', N'she eats _'),
+    (1, 1, 4, 2, N'Cô ấy ăn phô mai', N'She eats _'),
     (1, 1, 5, 2, N'Tôi là người ăn chay; I am _; vegetarian; vegetable; vegetarians; vegetation', 'A'),
     (1, 1, 6, 2, N'Anh ấy uống bia; He drinks _; milk; wine; water; beer', 'D'),
     (1, 1, 7, 2, N'Tôi có một cái đĩa', N'I have a _; fork; bowl; plate; chopstick', 'C'),
