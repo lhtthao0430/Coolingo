@@ -66,7 +66,7 @@ $(document).ready(function(){
 				$('#wrap-answer').hide();
 				$('.wrap-choose-answer').hide();
 				$('.choose-answer').hide();
-				$('#input-answer').show();
+				$('#input-answer').clear().show();
 				$('#speaker').show();
 				$('.question-type').text('Type what your hear');
 				$('.question').empty();
